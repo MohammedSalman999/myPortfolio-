@@ -1,4 +1,8 @@
-import { FC, useRef, useState } from "react";
+"use client";
+
+import type React from "react";
+
+import { type FC, useRef, useState } from "react";
 import { FlipWords } from "../../components/ui/flip-words";
 import { Vortex } from "../../components/ui/vortex";
 import { motion, useInView } from "framer-motion";
@@ -17,6 +21,7 @@ import {
   SiAuthelia,
   SiMongodb,
   SiPrisma,
+  SiGo,
 } from "react-icons/si";
 import { BiLinkExternal } from "react-icons/bi";
 import {
@@ -25,7 +30,6 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaGithub,
-  FaInstagram,
 } from "react-icons/fa";
 
 export const loader = async () => {
@@ -77,6 +81,10 @@ const webTechnologies = [
         icon: <SiTypescript className="bg-blue-500 text-white text-2xl" />,
         name: "TypeScript",
       },
+      {
+        icon: <SiGo className="bg-blue-500 text-white text-2xl" />,
+        name: "Golang",
+      },
     ],
   },
   {
@@ -89,6 +97,10 @@ const webTechnologies = [
       {
         icon: <FaFigma className="text-2xl" />,
         name: "Figma (UI/UX Understanding)",
+      },
+      {
+        icon: <RiRemixRunLine className="text-2xl" />,
+        name: "Remix",
       },
     ],
   },
@@ -105,10 +117,7 @@ const webTechnologies = [
         icon: <SiExpress className="bg-black text-white rounded-md text-2xl" />,
         name: "Express.js",
       },
-      {
-        icon: <RiRemixRunLine className="text-2xl" />,
-        name: "Remix",
-      },
+
       {
         icon: <SiAuthelia />,
         name: "Authentication (Clerk & JWT)",
@@ -116,6 +125,10 @@ const webTechnologies = [
       {
         icon: <FaRegFileImage />,
         name: "File Handling (Multer, Cloudinary)",
+      },
+      {
+        icon: <SiGo className="bg-blue-500 text-white text-2xl" />,
+        name: "Golang",
       },
     ],
   },
@@ -208,6 +221,9 @@ const webTechnologies = [
       {
         icon: <FaGithub className="text-2xl" />,
       },
+      {
+        icon: <SiGo className="bg-blue-500 text-white text-2xl" />,
+      },
     ],
   },
 ];
@@ -291,9 +307,85 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "THE BUILD MALL ",
+      description:
+        "Built using Remix, Prisma (MongoDB), Zustand, and Clerk authentication. Figma-based custom design with full responsiveness.",
+      web: "https://github.com/MohammedSalman999/The-Build-Mall",
+      icons: [
+        { component: RiRemixRunLine, className: "text-2xl" },
+        { component: SiPrisma, className: "text-2xl" },
+        {
+          component: SiMongodb,
+          className: "bg-white text-green-700 text-2xl rounded-full",
+        },
+      ],
+    },
+    {
+      title: "AFFORD MOTORS",
+      description:
+        "Built task management app using Remix + Prisma + MongoDB. Role-based actions (Admin, Moderator, Employee), Excel reports.",
+      web: "https://github.com/MohammedSalman999/affordmotors",
+      icons: [
+        { component: RiRemixRunLine, className: "text-2xl" },
+        { component: SiPrisma, className: "text-2xl" },
+        {
+          component: SiMongodb,
+          className: "bg-white text-green-700 text-2xl rounded-full",
+        },
+      ],
+    },
+    {
+      title: "TMS REACT",
+      description:
+        "Built full-featured admin panel using React and Node.js,Implemented charts, dark mode toggle, and user role handling.",
+      web: "https://github.com/MohammedSalman999/adminReactDashboard",
+      icons: [
+        {
+          component: IoLogoReact,
+          className: "bg-blue-600 text-2xl rounded-xl",
+        },
+        {
+          component: FaNodeJs,
+          className: "bg-green-500 text-white rounded-md text-2xl",
+        },
+      ],
+    },
+    {
+      title: "SILSILA",
+      description: "Golang-based room booking app with Bootstrap frontend.",
+      web: "https://github.com/MohammedSalman999/Silsila-The-Dream",
+      icons: [
+        { component: SiGo, className: "bg-blue-500 text-white text-2xl" },
+        {
+          component: IoLogoHtml5,
+          className: "bg-orange-500 text-white rounded-md text-2xl",
+        },
+        {
+          component: FaCss3Alt,
+          className: "bg-blue-500 text-white rounded-md text-2xl",
+        },
+      ],
+    },
+    {
+      title: "RMS Golang",
+      description: "Golang + MySQL backend with JWT-based job portal",
+      web: "https://github.com/MohammedSalman999/rmsUsinggolang",
+      icons: [
+        { component: SiGo, className: "bg-blue-500 text-white text-2xl" },
+      ],
+    },
+    {
+      title: "CMS(GOLANG)",
+      description: "RESTful API-based backend using Golang and MySQL.",
+      web: "https://github.com/MohammedSalman999/CarManagementSytem",
+      icons: [
+        { component: SiGo, className: "bg-blue-500 text-white text-2xl" },
+      ],
+    },
+    {
       title: "Tasks Sortify",
       description:
-        " A simple and efficient task management app that helps users organize, sort, and manage their tasks seamlessly.",
+        "A simple and efficient task management app that helps users organize, sort, and manage their tasks seamlessly.",
       web: "https://taskssortify.vercel.app/tasks",
       icons: [
         {
@@ -304,7 +396,6 @@ export default function Portfolio() {
           component: SiTypescript,
           className: "bg-blue-500 text-white text-2xl",
         },
-
         {
           component: IoLogoReact,
           className: "bg-blue-600 text-2xl rounded-xl",
@@ -314,10 +405,7 @@ export default function Portfolio() {
           component: SiMongodb,
           className: "bg-white text-green-700 text-2xl rounded-full",
         },
-        {
-          component: SiPrisma,
-          className: "text-2xl",
-        },
+        { component: SiPrisma, className: "text-2xl" },
       ],
     },
   ];
@@ -390,7 +478,7 @@ export default function Portfolio() {
                   }}
                   transition={{
                     duration: 1,
-                    repeat: Infinity,
+                    repeat: Number.POSITIVE_INFINITY,
                     repeatType: "reverse",
                   }}
                 >
@@ -453,7 +541,7 @@ export default function Portfolio() {
                 My Projects
               </h1>
 
-              <div className="w-full grid grid-cols-2 gap-8 justify-center">
+              <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
                 {projects.map((project, index) => (
                   <motion.div
                     key={index}
